@@ -3,7 +3,7 @@ package gateway
 import (
 	"context"
 
-	"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/src/domain/entity"
+	"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/internal/domain/entity"
 )
 
 type ChatGateway interface {

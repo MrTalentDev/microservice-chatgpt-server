@@ -6,8 +6,8 @@ import (
 	"io"
 	"strings"
 
-	"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/src/domain/entity"
-	"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/src/domain/gateway"
+	"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/internal/domain/entity"
+	"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/internal/domain/gateway"
 	"github.com/sashabaranov/go-openai"
 )
 
