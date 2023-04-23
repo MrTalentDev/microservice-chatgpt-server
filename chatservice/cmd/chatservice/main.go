@@ -1,4 +1,4 @@
-package chatservice
+package main
 
 import (
 	"database/sql"
@@ -9,6 +9,7 @@ import (
 	"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/internal/infra/web"
 	"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/internal/infra/web/webserver"
 	"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/internal/usecase/chatcompletion"
+	_ "github.com/go-sql-driver/mysql"
 
 	//"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/internal/usecase/chatcompletionstream"
 	"github.com/sashabaranov/go-openai"
@@ -63,6 +64,9 @@ func main() {
 	webserverChatHandler := web.NewWebChatGPTHandler(*usecase, chatConfig, configs.AuthToken)
 
 	webserver.AddHandler("/chat", webserverChatHandler.Handle)
+
 	fmt.Println("Starting server on port " + configs.WebServerPort)
+
+	webserver.Start()
 
 }
