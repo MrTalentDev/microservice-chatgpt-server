@@ -3,7 +3,7 @@ version: '3'
 services:
   mysql:
     image: mysql:8
-    container_name: mysql
+    container_name: chatservice_mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
