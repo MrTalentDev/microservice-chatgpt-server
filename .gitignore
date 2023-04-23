@@ -1,2 +1,4 @@
 chatservice/sqlc.exe
 chatservice/.docker
+chatservice/.env
+chatservice/libtiktoken.a
