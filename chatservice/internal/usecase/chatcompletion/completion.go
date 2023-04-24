@@ -3,6 +3,7 @@ package chatcompletion
 import (
 	"context"
 	"errors"
+	"fmt"
 
 	"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/internal/domain/entity"
 	"github.com/ThyagoFRTS/chatgpt-microservice/chatservice/internal/domain/gateway"
@@ -80,6 +81,7 @@ func (uc *ChatCompletionUseCase) Execute(ctx context.Context, input ChatCompleti
 			Content: msg.Content,
 		})
 	}
+	fmt.Println("cirou arry msgs")
 
 	resp, err := uc.OpenAIClient.CreateChatCompletion(
 		context.Background(),
@@ -95,8 +97,12 @@ func (uc *ChatCompletionUseCase) Execute(ctx context.Context, input ChatCompleti
 		},
 	)
 	if err != nil {
+		fmt.Println("err openai")
+		fmt.Println(err.Error())
+
 		return nil, errors.New("error openai: " + err.Error())
 	}
+	fmt.Println("chegou aqui")
 
 	assistant, err := entity.NewMessage("assistant", resp.Choices[0].Message.Content, chat.Config.Model)
 	if err != nil {
